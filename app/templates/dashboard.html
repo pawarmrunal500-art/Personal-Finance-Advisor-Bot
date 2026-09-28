@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+    <h2 class="fw-bold"><i class="fa-solid fa-chart-line text-primary me-2"></i> Financial Dashboard</h2>
+    <div>
+        <a href="{{ url_for('finance.incomes') }}" class="btn btn-outline-success me-2"><i class="fa-solid fa-plus me-1"></i> Add Income</a>
+        <a href="{{ url_for('finance.expenses') }}" class="btn btn-outline-danger"><i class="fa-solid fa-minus me-1"></i> Add Expense</a>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card dashboard-stat-card py-2 shadow-sm">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="text-muted text-uppercase mb-1">Total Balance</h6>
+                        <h3 class="fw-bold mb-0">{{ current_user.currency }} 0.00</h3>
+                    </div>
+                    <div class="text-primary opacity-50">
+                        <i class="fa-solid fa-wallet fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card dashboard-stat-card warning py-2 shadow-sm">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="text-muted text-uppercase mb-1">Monthly Income</h6>
+                        <h3 class="fw-bold mb-0">{{ current_user.currency }} {{ "%.2f"|format(current_user.monthly_income) }}</h3>
+                    </div>
+                    <div class="text-success opacity-50">
+                        <i class="fa-solid fa-arrow-trend-up fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card dashboard-stat-card danger py-2 shadow-sm">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="text-muted text-uppercase mb-1">Monthly Expenses</h6>
+                        <h3 class="fw-bold mb-0">{{ current_user.currency }} 0.00</h3>
+                    </div>
+                    <div class="text-danger opacity-50">
+                        <i class="fa-solid fa-arrow-trend-down fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-white py-3">
+                <h5 class="mb-0 fw-bold">Recent Transactions</h5>
+            </div>
+            <div class="card-body">
+                <p class="text-center text-muted py-4">No recent transactions to display. Start by adding an income or expense.</p>
+                <!-- Transaction table will go here in the next step -->
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-white py-3">
+                <h5 class="mb-0 fw-bold">Budget Status</h5>
+            </div>
+            <div class="card-body">
+                <p class="text-center text-muted py-4">No active budgets. <a href="{{ url_for('finance.budgets') }}">Set one up</a></p>
+                <!-- Budget progress bars will go here -->
+            </div>
+        </div>
+        
+        <div class="card bg-primary text-white shadow-sm">
+            <div class="card-body text-center py-4">
+                <i class="fa-solid fa-robot fa-3x mb-3 text-warning"></i>
+                <h5>AI Advisor Insights</h5>
+                <p class="small mb-3">Get personalized advice based on your current spending patterns and goals.</p>
+                <a href="{{ url_for('ai.chat') }}" class="btn btn-warning btn-sm fw-bold">Ask Advisor</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

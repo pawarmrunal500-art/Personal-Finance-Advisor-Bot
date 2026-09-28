@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row align-items-center mt-5">
+    <div class="col-md-6 text-center text-md-start mb-5 mb-md-0">
+        <h1 class="display-4 fw-bold text-primary mb-3">Master Your Money with AI</h1>
+        <p class="lead mb-4">Track expenses, set smart budgets, and get personalized financial advice powered by Google Gemini AI.</p>
+        
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-lg px-4 me-md-2 shadow">Get Started Free</a>
+            <a href="{{ url_for('auth.login') }}" class="btn btn-outline-secondary btn-lg px-4 shadow-sm">Login</a>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Financial Planning" class="img-fluid rounded-4 shadow-lg">
+    </div>
+</div>
+
+<div class="row mt-5 pt-5 text-center">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 py-4">
+            <div class="card-body">
+                <i class="fa-solid fa-wallet fa-3x text-primary mb-3"></i>
+                <h3 class="h5 fw-bold">Track Spending</h3>
+                <p class="text-muted">Easily record your income and expenses to know exactly where your money goes.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 py-4">
+            <div class="card-body">
+                <i class="fa-solid fa-chart-pie fa-3x text-secondary mb-3"></i>
+                <h3 class="h5 fw-bold">Smart Budgets</h3>
+                <p class="text-muted">Set monthly budgets for different categories and track your progress in real-time.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 py-4 border-primary">
+            <div class="card-body">
+                <i class="fa-solid fa-robot fa-3x text-warning mb-3"></i>
+                <h3 class="h5 fw-bold text-primary">AI Financial Advisor</h3>
+                <p class="text-muted">Get personalized saving recommendations and spending analysis from Gemini AI.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
